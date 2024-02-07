@@ -17,28 +17,28 @@
                 <button class="grey" onclick="clearResult()">C</button>
                 <button class="grey">+/-</button>
                 <button class="grey"  onclick="calculatePercentage()">%</button>
-                <button class="orange" >//</button>
+                <button class="orange" onClick="divide()">÷</button>
             </row>
             <row class="row-1">
-                <button class="dark">7</button>
-                <button class="dark">8</button>
-                <button class="dark">9</button>
+                <button class="dark" onClick="appendValue('7')">7</button>
+                <button class="dark" onclick="appendValue('8')">8</button>
+                <button class="dark" onclick="appendValue('9')">9</button>
                 <button class="orange" onclick="appendValue('*')">x</button>
             </row>
             <row class="row-1">
-                <button class="dark">4</button>
-                <button class="dark">5</button>
-                <button class="dark">6</button>
+                <button class="dark" onclick="appendValue('4')">4</button>
+                <button class="dark" onclick="appendValue('5')">5</button>
+                <button class="dark" onclick="appendValue('6')">6</button>
                 <button class="orange" onclick="appendValue('-')">-</button>
             </row>
             <row class="row-1">
                 <button class="dark" onclick="appendValue('1')">1</button>
                 <button class="dark" onclick="appendValue('2')">2</button>
-                <button class="dark">3</button>
+                <button class="dark" onclick="appendValue('3')">3</button>
                 <button class="orange" onclick="appendValue('+')">+</button>
             </row>
             <row class="row-1">
-                <button class="zero">0</button>
+                <button class="zero" onclick="appendValue('0')">0</button>
                 <button class="dark">.</button>
                 <button class="orange" onclick="calculateResult()">=</button>
             </row>

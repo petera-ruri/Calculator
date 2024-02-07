@@ -1,14 +1,10 @@
-function appendValue(value) {
-    document.getElementById('result').value += value;
-}
-
-function clearResult() {
-    document.getElementById('result').value = '';
-}
+// function appendValue(value) {
+//     document.getElementById('result').value += value;
+// }
 
 
-let currentInput = ''; // Variable to store the current input
-let result = ''; // Variable to store the result
+let currentInput = ''; 
+let result = '';
 
 function appendValue(value) {
     currentInput += value;
@@ -22,14 +18,20 @@ function clearResult() {
 }
 
 function calculateResult() {
-    result = eval(currentInput); // Using eval() for simplicity; consider alternative methods for security
+    result = eval(currentInput); 
     document.getElementById('result').value = result;
-    currentInput = ''; // Clear the current input after calculation
+    currentInput = '';
 }
 
 
 function calculatePercentage() {
-    result = eval(currentInput) / 100; // Calculate percentage
+    result = eval(currentInput) / 100; 
     document.getElementById('result').value = result;
-    currentInput = ''; // Clear the current input after calculation
+    currentInput = ''; 
+}
+
+function divide() {
+    currentInput += '/';
+    document.getElementById('result').value = currentInput;
+    
 }
