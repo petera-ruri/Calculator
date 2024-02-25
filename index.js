@@ -1,37 +1,33 @@
-// function appendValue(value) {
-//     document.getElementById('result').value += value;
-// }
+const display = document.getElementById("inputField");
 
 
-let currentInput = ''; 
-let result = '';
-
-function appendValue(value) {
-    currentInput += value;
-    document.getElementById('result').value = currentInput;
+function appendValue(input) {
+    display.value += input;
 }
-
+appendValue();
 function clearResult() {
-    currentInput = '';
-    result = '';
-    document.getElementById('result').value = '';
+    display.value = "";
 }
+clearResult();
 
-function calculateResult() {
-    result = eval(currentInput); 
-    document.getElementById('result').value = result;
-    currentInput = '';
+function calculateResult(operator) {
+    let numberValue = document.getElementById("btn");
+    let userInput = display.value + numberValue;
+    let inputValue;
+
+    if (operator === "+") {
+        inputValue = userInput + 1;
+    } else if (operator === "-") {
+        inputValue = userInput - 2;
+    } else if (operator === "*") {
+        inputValue = userInput * 3;
+    } else if (operator === "/") {
+        inputValue = userInput / 4;
+    } else if (operator === "=") {
+        inputValue = numberValue + userInput;
+    } else {
+        inputValue = display.value("error")
+    }
+    document.getElementById("inputField").value = inputValue;
 }
-
-
-function calculatePercentage() {
-    result = eval(currentInput) / 100; 
-    document.getElementById('result').value = result;
-    currentInput = ''; 
-}
-
-function divide() {
-    currentInput += '/';
-    document.getElementById('result').value = currentInput;
-    
-}
+console.log(inputValue)
