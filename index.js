@@ -24,7 +24,7 @@ function calculateResult(operator) {
     } else if (operator === "/") {
         inputValue = userInput / 4;
     } else if (operator === "=") {
-        inputValue = numberValue + userInput;
+        inputValue = userInput = 5;
     } else {
         inputValue = display.value("error")
     }
