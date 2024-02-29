@@ -1,33 +1,77 @@
-const display = document.getElementById("inputField");
+let display = document.getElementById("inputField");
+let firstNumber = '';
+let operator = '';
+let decimal = '';
 
-
-function appendValue(input) {
-    display.value += input;
-}
-appendValue();
 function clearResult() {
     display.value = "";
 }
 clearResult();
 
-function calculateResult(operator) {
-    let numberValue = document.getElementById("btn");
-    let userInput = display.value + numberValue;
-    let inputValue;
+// function operatorCalculation(num1, num2) {
+//     if (operator === '+') {
+//         num1 + num2;
+//     } else if (operator === '-') {
+//         num1 - num2;
+//     } else if (operator === '*') {
+//         num1 * num2;
+//     } else if (operator === '/') {
+//         num1 / num2;
+//     } else {
+//         return undefined;
+//     }
+// }
+// // add();
 
-    if (operator === "+") {
-        inputValue = userInput + 1;
-    } else if (operator === "-") {
-        inputValue = userInput - 2;
-    } else if (operator === "*") {
-        inputValue = userInput * 3;
-    } else if (operator === "/") {
-        inputValue = userInput / 4;
-    } else if (operator === "=") {
-        inputValue = userInput = 5;
-    } else {
-        inputValue = display.value("error")
-    }
-    document.getElementById("inputField").value = inputValue;
+function handleNumber(value) {
+    display.value += value;
 }
-console.log(inputValue)
+// handleNumber();
+
+function handleCalculate() {
+    const secondNumber = display.value;
+
+    if (firstNumber !== '' && secondNumber !== '') {
+        const num1 = parseFloat(firstNumber);
+        const num2 = parseFloat(secondNumber);
+
+
+        if (!isNaN(num1) && !isNaN(num2)) {
+            let result;
+
+            if (operator === '+') {
+                result = num1 + num2;
+            } else if (operator === '-') {
+                result = num1 - num2;
+            } else if (operator === '*') {
+                result = num1 * num2;
+            } else if (operator === '/') {
+                result = num1 / num2;
+            }
+
+
+            if (result !== undefined) {
+                display.value = result;
+                firstNumber = '';
+                decimal = ''
+                operator = '';
+            } else {
+                display.value = 'Error';
+            }
+        }
+    }
+}
+// handleCalculate();
+
+
+function handleOperator(op) {
+    if (firstNumber === '') {
+        firstNumber = display.value;
+        operator = op;
+        decimal = ''
+    } else {
+        display.value += op;
+    }
+}
+handleOperator();
+
