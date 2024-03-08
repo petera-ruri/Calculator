@@ -1,77 +1,85 @@
 let display = document.getElementById("inputField");
-let firstNumber = '';
+let firstNumber = parseFloat(display.value);
+let secondNumber = parseFloat(display.value);
 let operator = '';
-let decimal = '';
+let result = '';
+
 
 function clearResult() {
-    display.value = "";
+    display.value = '';
 }
 clearResult();
 
-// function operatorCalculation(num1, num2) {
-//     if (operator === '+') {
-//         num1 + num2;
-//     } else if (operator === '-') {
-//         num1 - num2;
-//     } else if (operator === '*') {
-//         num1 * num2;
-//     } else if (operator === '/') {
-//         num1 / num2;
-//     } else {
-//         return undefined;
-//     }
-// }
-// // add();
-
-function handleNumber(value) {
-    display.value += value;
-}
-// handleNumber();
-
-function handleCalculate() {
-    const secondNumber = display.value;
-
-    if (firstNumber !== '' && secondNumber !== '') {
-        const num1 = parseFloat(firstNumber);
-        const num2 = parseFloat(secondNumber);
-
-
-        if (!isNaN(num1) && !isNaN(num2)) {
-            let result;
-
-            if (operator === '+') {
-                result = num1 + num2;
-            } else if (operator === '-') {
-                result = num1 - num2;
-            } else if (operator === '*') {
-                result = num1 * num2;
-            } else if (operator === '/') {
-                result = num1 / num2;
-            }
-
-
-            if (result !== undefined) {
-                display.value = result;
-                firstNumber = '';
-                decimal = ''
-                operator = '';
-            } else {
-                display.value = 'Error';
-            }
-        }
+function handleNumber(firstNumberClicked, secondNumberClicked) {
+     firstNumber = firstNumberClicked
+    
+    secondNumberClicked = ''
+    secondNumber = secondNumberClicked
+    display.value += firstNumber
+    display.value += secondNumber
+    
+    
+    if (secondNumber === '0') {
+        
+    } else {
+        firstNumberClicked = secondNumber
     }
+    console.log('firstNumber:', firstNumber);
+    console.log( 'secondNumber:', secondNumber);
 }
-// handleCalculate();
+handleNumber('');
+
 
 
 function handleOperator(op) {
-    if (firstNumber === '') {
-        firstNumber = display.value;
-        operator = op;
-        decimal = ''
-    } else {
-        display.value += op;
-    }
+    operator = op;
+
+    display.value += op
+
+    if (op === '+') {
+        operator === '+';
+    } else if (op === '-') {
+        operator === '-';
+    } else if (op === '*') {
+        operator === '*';
+    } else if (op === '/') {
+        operator === '/';
+    } 
+    console.log('operator:', operator);
 }
-handleOperator();
+console.log(handleOperator(''));
+
+
+function handleCalculate(operator) {
+    let secondNumber = display.value
+
+    let num1 = parseFloat(firstNumber);
+    let num2 = parseFloat(secondNumber);
+
+
+   
+    let result = (num1 + num2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    let total = parseInt(result);
+   
+    if (operator === '=') {
+        display.value = result
+    }
+
+        if (operator === '+') {
+            result = num1 + num2
+        } else if (operator === '-') {
+            result = num1 - num2
+        } else if (operator === '*') {
+            result = num1 * num2
+        } else if (operator === '/') {
+            result = num1 / num2
+        } else {
+           
+        }
+
+      
+        console.log('result:', total);
+    }
+
+handleCalculate('');
 
