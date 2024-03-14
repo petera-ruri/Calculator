@@ -66,8 +66,8 @@ function handleCalculate() {
             result = num1 / num2;
         } if (operator === '.') {
                 result = num1 + num2;
-        }
-            result = result.toFixed(1);
+                result = result.toFixed(1);
+            }
             console.log(result);
             display.value = result;
         }
