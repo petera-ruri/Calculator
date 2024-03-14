@@ -40,6 +40,8 @@ function handleOperator(op) {
         operator === '*';
     } else if (op === '/') {
         operator === '/';
+    } else if (op === '.') {
+        operator === '.';
     }
     console.log('operator:', operator);
 }
@@ -48,8 +50,10 @@ handleOperator('');
 function handleCalculate() {
     let inputNumbers = display.value.split(operator);
     if (inputNumbers.length === 2 && !isNaN(inputNumbers[0]) && !isNaN(inputNumbers[1])) {
-        let num1 = parseInt(inputNumbers[0].trim());
-        let num2 = parseInt(inputNumbers[1].trim());
+        let num1 = parseFloat(inputNumbers[0].trim());
+        let num2 = parseFloat(inputNumbers[1].trim());
+        // let num3 = parseInt(inputNumbers[2].trim());
+        // let num4 = parseInt(inputNumbers[3].trim());
 
         let result;
         if (operator === '+') {
@@ -60,13 +64,17 @@ function handleCalculate() {
             result = num1 * num2;
         } else if (operator === '/') {
             result = num1 / num2;
+        } if (operator === '.') {
+                result = num1 + num2;
         }
-        display.value = result;
-        console.log(result);
-    } else {
+            result = result.toFixed(1);
+            console.log(result);
+            display.value = result;
+        }
+           else {
         console.log("error");
-    }
+        }
 }
-handleCalculate();
+console.log(handleCalculate());
 
 
